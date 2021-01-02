@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 public class FilledMovieController {
-    
+
     @Autowired
     private RestTemplate restTemplate;
 
@@ -122,7 +122,7 @@ public class FilledMovieController {
     public FilledGenre updateMovie(@RequestParam String title, @RequestParam int year, @RequestParam String category, @RequestParam int minutes, @RequestParam String imdbID){
 
         Movie movie =
-                restTemplate.getForObject("http://" + movieServiceBaseUrl + "movies/imdbID/" + imdbID,
+                restTemplate.getForObject("http://" + movieServiceBaseUrl + "/movies/imdbID/" + imdbID,
                         Movie.class);
         movie.setCategory(category);
         movie.setMinutes(minutes);
