@@ -136,15 +136,14 @@ public class FilledMovieController {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/movies")
     public FilledGenre addMovie(@RequestBody Movie movie){
-        Movie newMovie = new Movie(0, movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID());
         Movie addedMovie =
-                restTemplate.postForObject("http://" + movieServiceBaseUrl + "/movies", newMovie,Movie.class);
+                restTemplate.postForObject("http://" + movieServiceBaseUrl + "/movies", movie,Movie.class);
 
         Genre genre =
                 restTemplate.getForObject("http://" + genreServiceBaseUrl + "/genres/genre/{name}",
                         Genre.class, movie.getCategory());
 
-        return new FilledGenre(genre, newMovie);
+        return new FilledGenre(genre, movie);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
