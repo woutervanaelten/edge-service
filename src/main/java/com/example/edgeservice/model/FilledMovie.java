@@ -5,23 +5,24 @@ import java.util.List;
 
 public class FilledMovie {
 
-    private String title;
+    private Movie movie;
     private List<Cast> casts;
 
     public FilledMovie(Movie movie, List<Cast> castList){
-        setTitle(movie.getTitle());
+        setMovie(movie);
         casts = new ArrayList<>();
         castList.forEach(cast->{
-            casts.add(new Cast(cast.getMovieId(), cast.getiMDB(), cast.getCharacter(), cast.getFirstName(), cast.getLastName(), cast.getAge(), cast.getBirthPlace()));
+            casts.add(new Cast(cast.getId(), cast.getMovieId(), cast.getiMDB(), cast.getCharacter(), cast.getFirstName(), cast.getLastName(), cast.getAge(), cast.getBirthPlace()));
         });
+        setCasts(casts);
     }
 
-    public String getTitle() {
-        return title;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 
     public List<Cast> getCasts() {

@@ -11,7 +11,8 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, int year, String category, int minutes, String imdbID) {
+    public Movie(int id, String title, int year, String category, int minutes, String imdbID) {
+        setId(id);
         setTitle(title);
         setYear(year);
         setCategory(category);

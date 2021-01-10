@@ -5,31 +5,31 @@ import java.util.List;
 
 public class FilledGenre {
 
-    private String nameGenre;
+    private Genre genre;
     private List<Movie> movies;
 
     public FilledGenre(Genre genre, List<Movie> movieList) {
-        setNameGenre(genre.getName());
+        setGenre(genre);
         movies = new ArrayList<>();
         movieList.forEach(movie -> {
-            movies.add(new Movie(movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID()));
+            movies.add(new Movie(movie.getId(), movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID()));
         });
         setMovies(movies);
     }
 
     public FilledGenre(Genre genre, Movie movie) {
-        setNameGenre(genre.getName());
+        setGenre(genre);
         movies = new ArrayList<>();
-        movies.add(new Movie(movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID()));
+        movies.add(new Movie(movie.getId(), movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID()));
         setMovies(movies);
     }
 
-    public String getNameGenre() {
-        return nameGenre;
+    public Genre getGenre() {
+        return genre;
     }
 
-    public void setNameGenre(String nameGenre) {
-        this.nameGenre = nameGenre;
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public List<Movie> getMovies() {

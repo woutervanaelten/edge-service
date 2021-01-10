@@ -4,27 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FilledCast {
-    private String nameCast;
+    private Cast cast;
     private List<Movie> movies;
 
     public FilledCast(Cast cast, List<Movie> movieList){
-        setNameCast(cast.getFirstName() + " " + cast.getLastName() + " speelt " + cast.getCharacter());
+        setCast(cast);
         movies = new ArrayList<>();
         movieList.forEach(movie -> {
-            movies.add(new Movie(movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID()));
+            movies.add(new Movie(movie.getId(), movie.getTitle(), movie.getYear(), movie.getCategory(), movie.getMinutes(), movie.getImdbID()));
         });
         setMovies(movies);
     }
 
-    public FilledCast() {
+    public Cast getCast() {
+        return cast;
     }
 
-    public String getNameCast() {
-        return nameCast;
-    }
-
-    public void setNameCast(String nameCast) {
-        this.nameCast = nameCast;
+    public void setCast(Cast cast) {
+        this.cast = cast;
     }
 
     public List<Movie> getMovies() {

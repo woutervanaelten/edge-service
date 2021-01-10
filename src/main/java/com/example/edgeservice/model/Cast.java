@@ -10,7 +10,8 @@ public class Cast {
     private Integer age;
     private String birthPlace;
 
-    public Cast(Integer movieId, String iMDB, String character, String firstName, String lastName, Integer age, String birthPlace) {
+    public Cast(String id, Integer movieId, String iMDB, String character, String firstName, String lastName, Integer age, String birthPlace) {
+        this.id = id;
         this.movieId = movieId;
         this.iMDB = iMDB;
         this.character = character;
